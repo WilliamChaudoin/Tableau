@@ -1,0 +1,1185 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20242.24.0711.1636                               -->
+<workbook original-version='18.1' source-build='2024.2.1 (20242.24.0711.1636)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelSharedDimensions.true...ObjectModelSharedDimensions />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='Pay Rates 2+ (Multiple Connections)' inline='true' name='federated.0g0i8gu0woj7od18sxi0k1ww7jmn' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='sample_-_superstore' name='excel-direct.071wyg41al52q017zxsha0smwp2t'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/willc/OneDrive/Documents/Game Plan/Portfolio/Staging/sample_-_superstore.xls' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='Employees' name='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/willc/OneDrive/Documents/Game Plan/Portfolio/Staging/Employees.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation all='true' name='Pay Rates 21+' type='union'>
+          <columns header='yes'>
+            <column datatype='integer' name='id' />
+            <column datatype='string' name='employee' />
+            <column datatype='integer' name='hourly_rate' />
+            <column datatype='string' name='Sheet' />
+            <column datatype='string' name='Table Name' />
+          </columns>
+          <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates 21' table='[&apos;Pay Rates 2$&apos;]' type='table'>
+            <columns gridOrigin='A1:C3:no:A1:C3:0' header='yes' outcome='6'>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='string' name='employee' ordinal='1' />
+              <column datatype='integer' name='hourly_rate' ordinal='2' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Pay Rates 2].[id]' />
+                <expression op='[Positions1].[id]' />
+              </expression>
+            </clause>
+            <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates 2' table='[&apos;Pay Rates 2$&apos;]' type='table'>
+              <columns gridOrigin='A1:C3:no:A1:C3:0' header='yes' outcome='6'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='employee' ordinal='1' />
+                <column datatype='integer' name='hourly_rate' ordinal='2' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Positions1' table='[Positions$]' type='table'>
+              <columns gridOrigin='A1:B5:no:A1:B5:0' header='yes' outcome='6'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='position' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <_.fcp.ObjectModelSharedDimensions.true...relation all='true' name='Pay Rates1+' type='union'>
+            <columns header='yes'>
+              <column datatype='integer' name='id' />
+              <column datatype='string' name='employee' />
+              <column datatype='integer' name='pay_rate' />
+              <column datatype='string' name='Sheet' />
+              <column datatype='string' name='Table Name' />
+            </columns>
+            <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates1' table='[&apos;Pay Rates$&apos;]' type='table'>
+              <columns gridOrigin='A1:C5:no:A1:C5:0' header='yes' outcome='6'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='employee' ordinal='1' />
+                <column datatype='integer' name='pay_rate' ordinal='2' />
+              </columns>
+            </relation>
+          </_.fcp.ObjectModelSharedDimensions.true...relation>
+          <_.fcp.ObjectModelSharedDimensions.true...relation all='true' name='Pay Rates 21+' type='union'>
+            <columns header='yes'>
+              <column datatype='integer' name='id' />
+              <column datatype='string' name='employee' />
+              <column datatype='integer' name='hourly_rate' />
+              <column datatype='string' name='Sheet' />
+              <column datatype='string' name='Table Name' />
+            </columns>
+            <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates 21' table='[&apos;Pay Rates 2$&apos;]' type='table'>
+              <columns gridOrigin='A1:C3:no:A1:C3:0' header='yes' outcome='6'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='employee' ordinal='1' />
+                <column datatype='integer' name='hourly_rate' ordinal='2' />
+              </columns>
+            </relation>
+          </_.fcp.ObjectModelSharedDimensions.true...relation>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Pay Rates].[id]' />
+                <expression op='[Positions].[id]' />
+              </expression>
+            </clause>
+            <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates' table='[&apos;Pay Rates$&apos;]' type='table'>
+              <columns gridOrigin='A1:C5:no:A1:C5:0' header='yes' outcome='6'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='employee' ordinal='1' />
+                <column datatype='integer' name='pay_rate' ordinal='2' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Positions' table='[Positions$]' type='table'>
+              <columns gridOrigin='A1:B5:no:A1:B5:0' header='yes' outcome='6'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='position' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <_.fcp.ObjectModelSharedDimensions.true...relation connection='excel-direct.071wyg41al52q017zxsha0smwp2t' name='Returns' table='[Returns$]' type='table'>
+            <columns gridOrigin='A1:B297:no:A1:B297:0' header='yes' outcome='6'>
+              <column datatype='string' name='Returned' ordinal='0' />
+              <column datatype='string' name='Order ID' ordinal='1' />
+            </columns>
+          </_.fcp.ObjectModelSharedDimensions.true...relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Order ID]' value='[Returns].[Order ID]' />
+          <map key='[Returned]' value='[Returns].[Returned]' />
+          <map key='[Sheet (Pay Rates 21+)]' value='[Pay Rates 21+].[Sheet]' />
+          <map key='[Sheet]' value='[Pay Rates1+].[Sheet]' />
+          <map key='[Table Name (Pay Rates 21+)]' value='[Pay Rates 21+].[Table Name]' />
+          <map key='[Table Name]' value='[Pay Rates1+].[Table Name]' />
+          <map key='[employee (Pay Rates 2)]' value='[Pay Rates 2].[employee]' />
+          <map key='[employee (Pay Rates 21+)]' value='[Pay Rates 21+].[employee]' />
+          <map key='[employee (Pay Rates1+)]' value='[Pay Rates1+].[employee]' />
+          <map key='[employee]' value='[Pay Rates].[employee]' />
+          <map key='[hourly_rate (Pay Rates 21+)]' value='[Pay Rates 21+].[hourly_rate]' />
+          <map key='[hourly_rate]' value='[Pay Rates 2].[hourly_rate]' />
+          <map key='[id (Pay Rates 2)]' value='[Pay Rates 2].[id]' />
+          <map key='[id (Pay Rates 21+)]' value='[Pay Rates 21+].[id]' />
+          <map key='[id (Pay Rates1+)]' value='[Pay Rates1+].[id]' />
+          <map key='[id (Positions)]' value='[Positions].[id]' />
+          <map key='[id (Positions1)]' value='[Positions1].[id]' />
+          <map key='[id]' value='[Pay Rates].[id]' />
+          <map key='[pay_rate (Pay Rates1+)]' value='[Pay Rates1+].[pay_rate]' />
+          <map key='[pay_rate]' value='[Pay Rates].[pay_rate]' />
+          <map key='[position (Positions1)]' value='[Positions1].[position]' />
+          <map key='[position]' value='[Positions].[position]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Pay Rates 2]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C3:no:A1:C3:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Positions1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B5:no:A1:B5:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Pay Rates1+]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C5:no:A1:C5:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Pay Rates 21+]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C3:no:A1:C3:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Pay Rates]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C5:no:A1:C5:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Positions]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B5:no:A1:B5:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Returns]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B297:no:A1:B297:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (Pay Rates 2)]</local-name>
+            <parent-name>[Pay Rates 2]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>employee</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[employee (Pay Rates 2)]</local-name>
+            <parent-name>[Pay Rates 2]</parent-name>
+            <remote-alias>employee</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>hourly_rate</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hourly_rate]</local-name>
+            <parent-name>[Pay Rates 2]</parent-name>
+            <remote-alias>hourly_rate</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (Positions1)]</local-name>
+            <parent-name>[Positions1]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>position</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[position (Positions1)]</local-name>
+            <parent-name>[Positions1]</parent-name>
+            <remote-alias>position</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (Pay Rates1+)]</local-name>
+            <parent-name>[Pay Rates1+]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>employee</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[employee (Pay Rates1+)]</local-name>
+            <parent-name>[Pay Rates1+]</parent-name>
+            <remote-alias>employee</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pay_rate</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[pay_rate (Pay Rates1+)]</local-name>
+            <parent-name>[Pay Rates1+]</parent-name>
+            <remote-alias>pay_rate</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sheet</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sheet]</local-name>
+            <parent-name>[Pay Rates1+]</parent-name>
+            <remote-alias>Sheet</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Table Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Table Name]</local-name>
+            <parent-name>[Pay Rates1+]</parent-name>
+            <remote-alias>Table Name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (Pay Rates 21+)]</local-name>
+            <parent-name>[Pay Rates 21+]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>employee</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[employee (Pay Rates 21+)]</local-name>
+            <parent-name>[Pay Rates 21+]</parent-name>
+            <remote-alias>employee</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hourly_rate</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hourly_rate (Pay Rates 21+)]</local-name>
+            <parent-name>[Pay Rates 21+]</parent-name>
+            <remote-alias>hourly_rate</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sheet</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sheet (Pay Rates 21+)]</local-name>
+            <parent-name>[Pay Rates 21+]</parent-name>
+            <remote-alias>Sheet</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Table Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Table Name (Pay Rates 21+)]</local-name>
+            <parent-name>[Pay Rates 21+]</parent-name>
+            <remote-alias>Table Name</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[Pay Rates]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>employee</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[employee]</local-name>
+            <parent-name>[Pay Rates]</parent-name>
+            <remote-alias>employee</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>pay_rate</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[pay_rate]</local-name>
+            <parent-name>[Pay Rates]</parent-name>
+            <remote-alias>pay_rate</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (Positions)]</local-name>
+            <parent-name>[Positions]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>position</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[position]</local-name>
+            <parent-name>[Positions]</parent-name>
+            <remote-alias>position</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>Returned</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Returned]</local-name>
+            <parent-name>[Returns]</parent-name>
+            <remote-alias>Returned</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Returns_90C08C48958440909768609C6AA91952]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>Order ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Order ID]</local-name>
+            <parent-name>[Returns]</parent-name>
+            <remote-alias>Order ID</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Returns_90C08C48958440909768609C6AA91952]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='StateCal' datatype='string' name='[Calculation_289356323881160704]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='LEFT([Order ID],2)' />
+      </column>
+      <column caption='SplitCal1' datatype='string' name='[Calculation_289356323881615361]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='SPLIT([Order ID],&quot;-&quot;,1)' />
+      </column>
+      <column caption='SplitCal2' datatype='string' name='[Calculation_289356323881791490]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='SPLIT([Order ID],&quot;-&quot;,2)' />
+      </column>
+      <column caption='SplitCal3' datatype='string' name='[Calculation_289356323881865219]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='SPLIT([Order ID],&quot;-&quot;,3)' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='Pay Rates 21' datatype='table' name='[__tableau_internal_object_id__].[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Pay Rates 2' datatype='table' name='[__tableau_internal_object_id__].[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Pay Rates1' datatype='table' name='[__tableau_internal_object_id__].[Pay Rates_1C81840FF0864533982729BF0A549F03]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Pay Rates' datatype='table' name='[__tableau_internal_object_id__].[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Returns' datatype='table' name='[__tableau_internal_object_id__].[Returns_90C08C48958440909768609C6AA91952]' role='measure' type='quantitative' />
+      <column caption='Employee' datatype='string' name='[employee]' role='dimension' type='nominal' />
+      <column caption='Hourly Rate' datatype='integer' name='[hourly_rate]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[id (Pay Rates 2)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[id (Positions)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[id (Positions1)]' role='dimension' type='ordinal' />
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Pay Rate' datatype='integer' name='[pay_rate]' role='measure' type='quantitative' />
+      <column caption='Position' datatype='string' name='[position]' role='dimension' type='nominal' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/willc/AppData/Local/Temp/TableauTemp/#TableauTemp_0frh0vy0hc3ydi115arwh0uoktl5.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/06/2024 02:43:35 PM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C' table='[Extract].[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+            <_.fcp.ObjectModelSharedDimensions.true...relation name='Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C' table='[Extract].[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]' type='table' />
+            <relation name='Pay Rates_1C81840FF0864533982729BF0A549F03' table='[Extract].[Pay Rates_1C81840FF0864533982729BF0A549F03]' type='table' />
+            <relation name='Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C' table='[Extract].[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]' type='table' />
+            <_.fcp.ObjectModelSharedDimensions.true...relation name='Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1' table='[Extract].[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]' type='table' />
+            <_.fcp.ObjectModelSharedDimensions.true...relation name='Returns_90C08C48958440909768609C6AA91952' table='[Extract].[Returns_90C08C48958440909768609C6AA91952]' type='table' />
+          </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+          <cols>
+            <map key='[Order ID]' value='[Returns_90C08C48958440909768609C6AA91952].[Order ID]' />
+            <map key='[Returned]' value='[Returns_90C08C48958440909768609C6AA91952].[Returned]' />
+            <map key='[Sheet (Pay Rates 21+)]' value='[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C].[Sheet]' />
+            <map key='[Sheet]' value='[Pay Rates_1C81840FF0864533982729BF0A549F03].[Sheet]' />
+            <map key='[Table Name (Pay Rates 21+)]' value='[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C].[Table Name]' />
+            <map key='[Table Name]' value='[Pay Rates_1C81840FF0864533982729BF0A549F03].[Table Name]' />
+            <map key='[employee (Pay Rates 2)]' value='[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C].[employee]' />
+            <map key='[employee (Pay Rates 21+)]' value='[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C].[employee]' />
+            <map key='[employee (Pay Rates1+)]' value='[Pay Rates_1C81840FF0864533982729BF0A549F03].[employee]' />
+            <map key='[employee]' value='[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1].[employee]' />
+            <map key='[hourly_rate (Pay Rates 21+)]' value='[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C].[hourly_rate]' />
+            <map key='[hourly_rate]' value='[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C].[hourly_rate]' />
+            <map key='[id (Pay Rates 2)]' value='[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C].[id]' />
+            <map key='[id (Pay Rates 21+)]' value='[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C].[id]' />
+            <map key='[id (Pay Rates1+)]' value='[Pay Rates_1C81840FF0864533982729BF0A549F03].[id]' />
+            <map key='[id (Positions)]' value='[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1].[id]' />
+            <map key='[id (Positions1)]' value='[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C].[id1]' />
+            <map key='[id]' value='[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1].[id1]' />
+            <map key='[pay_rate (Pay Rates1+)]' value='[Pay Rates_1C81840FF0864533982729BF0A549F03].[pay_rate]' />
+            <map key='[pay_rate]' value='[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1].[pay_rate]' />
+            <map key='[position (Positions1)]' value='[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C].[position]' />
+            <map key='[position]' value='[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1].[position]' />
+          </cols>
+          <metadata-records>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[id (Pay Rates 2)]</local-name>
+              <parent-name>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</parent-name>
+              <remote-alias>id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Pay Rates 2</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>employee</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[employee (Pay Rates 2)]</local-name>
+              <parent-name>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</parent-name>
+              <remote-alias>employee</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Pay Rates 2</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>hourly_rate</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[hourly_rate]</local-name>
+              <parent-name>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</parent-name>
+              <remote-alias>hourly_rate</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Pay Rates 2</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>id1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[id (Positions1)]</local-name>
+              <parent-name>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</parent-name>
+              <remote-alias>id1</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Positions1</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>position</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[position (Positions1)]</local-name>
+              <parent-name>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</parent-name>
+              <remote-alias>position</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Positions1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[id (Pay Rates1+)]</local-name>
+              <parent-name>[Pay Rates_1C81840FF0864533982729BF0A549F03]</parent-name>
+              <remote-alias>id</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Pay Rates1+</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>employee</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[employee (Pay Rates1+)]</local-name>
+              <parent-name>[Pay Rates_1C81840FF0864533982729BF0A549F03]</parent-name>
+              <remote-alias>employee</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Pay Rates1+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>pay_rate</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[pay_rate (Pay Rates1+)]</local-name>
+              <parent-name>[Pay Rates_1C81840FF0864533982729BF0A549F03]</parent-name>
+              <remote-alias>pay_rate</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Pay Rates1+</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sheet</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sheet]</local-name>
+              <parent-name>[Pay Rates_1C81840FF0864533982729BF0A549F03]</parent-name>
+              <remote-alias>Sheet</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Pay Rates1+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Table Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Table Name]</local-name>
+              <parent-name>[Pay Rates_1C81840FF0864533982729BF0A549F03]</parent-name>
+              <remote-alias>Table Name</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Pay Rates1+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_1C81840FF0864533982729BF0A549F03]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[id (Pay Rates 21+)]</local-name>
+              <parent-name>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</parent-name>
+              <remote-alias>id</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Pay Rates 21+</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>employee</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[employee (Pay Rates 21+)]</local-name>
+              <parent-name>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</parent-name>
+              <remote-alias>employee</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Pay Rates 21+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>hourly_rate</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[hourly_rate (Pay Rates 21+)]</local-name>
+              <parent-name>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</parent-name>
+              <remote-alias>hourly_rate</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Pay Rates 21+</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sheet</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sheet (Pay Rates 21+)]</local-name>
+              <parent-name>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</parent-name>
+              <remote-alias>Sheet</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Pay Rates 21+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Table Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Table Name (Pay Rates 21+)]</local-name>
+              <parent-name>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</parent-name>
+              <remote-alias>Table Name</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Pay Rates 21+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>id1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[id]</local-name>
+              <parent-name>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</parent-name>
+              <remote-alias>id1</remote-alias>
+              <ordinal>15</ordinal>
+              <family>Pay Rates</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>employee</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[employee]</local-name>
+              <parent-name>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</parent-name>
+              <remote-alias>employee</remote-alias>
+              <ordinal>16</ordinal>
+              <family>Pay Rates</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>pay_rate</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[pay_rate]</local-name>
+              <parent-name>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</parent-name>
+              <remote-alias>pay_rate</remote-alias>
+              <ordinal>17</ordinal>
+              <family>Pay Rates</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[id (Positions)]</local-name>
+              <parent-name>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</parent-name>
+              <remote-alias>id</remote-alias>
+              <ordinal>18</ordinal>
+              <family>Positions</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>position</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[position]</local-name>
+              <parent-name>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</parent-name>
+              <remote-alias>position</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Positions</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>Returned</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Returned]</local-name>
+              <parent-name>[Returns_90C08C48958440909768609C6AA91952]</parent-name>
+              <remote-alias>Returned</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Returns</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Returns_90C08C48958440909768609C6AA91952]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>Order ID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Order ID]</local-name>
+              <parent-name>[Returns_90C08C48958440909768609C6AA91952]</parent-name>
+              <remote-alias>Order ID</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Returns</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>296</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Returns_90C08C48958440909768609C6AA91952]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Returned' />
+        <field-sort-custom-order field='Order ID' />
+        <field-sort-custom-order field='Calculation_289356323881865219' />
+        <field-sort-custom-order field='Calculation_289356323881791490' />
+        <field-sort-custom-order field='Calculation_289356323881615361' />
+        <field-sort-custom-order field='Calculation_289356323881160704' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Pay Rates 21' id='Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C'>
+            <properties context=''>
+              <relation all='true' name='Pay Rates 21+' type='union'>
+                <columns header='yes'>
+                  <column datatype='integer' name='id' />
+                  <column datatype='string' name='employee' />
+                  <column datatype='integer' name='hourly_rate' />
+                  <column datatype='string' name='Sheet' />
+                  <column datatype='string' name='Table Name' />
+                </columns>
+                <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates 21' table='[&apos;Pay Rates 2$&apos;]' type='table'>
+                  <columns gridOrigin='A1:C3:no:A1:C3:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='employee' ordinal='1' />
+                    <column datatype='integer' name='hourly_rate' ordinal='2' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C' table='[Extract].[Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C]' type='table' />
+            </properties>
+          </object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='Pay Rates 2' id='Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C'>
+            <properties context=''>
+              <relation join='full' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[Pay Rates 2].[id]' />
+                    <expression op='[Positions1].[id]' />
+                  </expression>
+                </clause>
+                <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates 2' table='[&apos;Pay Rates 2$&apos;]' type='table'>
+                  <columns gridOrigin='A1:C3:no:A1:C3:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='employee' ordinal='1' />
+                    <column datatype='integer' name='hourly_rate' ordinal='2' />
+                  </columns>
+                </relation>
+                <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Positions1' table='[Positions$]' type='table'>
+                  <columns gridOrigin='A1:B5:no:A1:B5:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='position' ordinal='1' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C' table='[Extract].[Pay Rates 2_59EE8EAC1B4E46FFA2E7E1BC4091C37C]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+          <object caption='Pay Rates1' id='Pay Rates_1C81840FF0864533982729BF0A549F03'>
+            <properties context=''>
+              <relation all='true' name='Pay Rates1+' type='union'>
+                <columns header='yes'>
+                  <column datatype='integer' name='id' />
+                  <column datatype='string' name='employee' />
+                  <column datatype='integer' name='pay_rate' />
+                  <column datatype='string' name='Sheet' />
+                  <column datatype='string' name='Table Name' />
+                </columns>
+                <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates1' table='[&apos;Pay Rates$&apos;]' type='table'>
+                  <columns gridOrigin='A1:C5:no:A1:C5:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='employee' ordinal='1' />
+                    <column datatype='integer' name='pay_rate' ordinal='2' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Pay Rates_1C81840FF0864533982729BF0A549F03' table='[Extract].[Pay Rates_1C81840FF0864533982729BF0A549F03]' type='table' />
+            </properties>
+          </object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='Pay Rates' id='Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[Pay Rates].[id]' />
+                    <expression op='[Positions].[id]' />
+                  </expression>
+                </clause>
+                <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Pay Rates' table='[&apos;Pay Rates$&apos;]' type='table'>
+                  <columns gridOrigin='A1:C5:no:A1:C5:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='employee' ordinal='1' />
+                    <column datatype='integer' name='pay_rate' ordinal='2' />
+                  </columns>
+                </relation>
+                <relation connection='excel-direct.1diyvsz0s8ehbp186w4ak0t0ck9p' name='Positions' table='[Positions$]' type='table'>
+                  <columns gridOrigin='A1:B5:no:A1:B5:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='position' ordinal='1' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1' table='[Extract].[Pay Rates_AA73634D7C824D55808AAAAE39DBF7A1]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='Returns' id='Returns_90C08C48958440909768609C6AA91952'>
+            <properties context=''>
+              <relation connection='excel-direct.071wyg41al52q017zxsha0smwp2t' name='Returns' table='[Returns$]' type='table'>
+                <columns gridOrigin='A1:B297:no:A1:B297:0' header='yes' outcome='6'>
+                  <column datatype='string' name='Returned' ordinal='0' />
+                  <column datatype='string' name='Order ID' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Returns_90C08C48958440909768609C6AA91952' table='[Extract].[Returns_90C08C48958440909768609C6AA91952]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[id (Pay Rates1+)]' />
+              <expression op='[id (Pay Rates 21+)]' />
+            </expression>
+            <first-end-point object-id='Pay Rates_1C81840FF0864533982729BF0A549F03' />
+            <second-end-point object-id='Pay Rates 2_121F47653F9B4EE0AE1336CE85731C7C' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{EC090B0F-78DE-4220-A92E-575946F4BB07}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{59F6C5DC-26AF-42CC-ACE7-040A5693355C}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
